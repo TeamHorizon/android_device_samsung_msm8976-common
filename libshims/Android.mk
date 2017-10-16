@@ -12,36 +12,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_C_INCLUDES := \
-    system/media/camera/include
-
 LOCAL_SRC_FILES := \
-    CameraWrapper.cpp
+    get_process_name/get_process_name.c
 
-LOCAL_SHARED_LIBRARIES := \
-    libhardware liblog libcamera_client libgui libutils
-
-LOCAL_MODULE_RELATIVE_PATH := hw
-LOCAL_MODULE := camera.$(TARGET_BOARD_PLATFORM)
+LOCAL_MODULE := libshims_get_process_name
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_32_BIT_ONLY := true
-include $(BUILD_SHARED_LIBRARY)
-
-include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES := \
-    CameraParameters.cpp
-
-LOCAL_MODULE := libcamera_parameters_shim
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_MODULE_TAGS := optional
-
-LOCAL_32_BIT_ONLY := true
 include $(BUILD_SHARED_LIBRARY)
